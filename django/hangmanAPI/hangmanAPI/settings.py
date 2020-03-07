@@ -21,7 +21,7 @@ os.chdir(BASE_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-SECRET_KEY = 'config.config.APIKEY_WORDSAPI'
+SECRET_KEY = config.config['APIKEY_WORDSAPI']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hangmanAPI.mainApp',
+    'mainApp',
 ]
 
 MIDDLEWARE = [
