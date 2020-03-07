@@ -3,11 +3,4 @@ import requests
 
 
 class getNewWord(models.Model):
-
-
-
-
-
-
-
-     print(response.text)
+     randomWord = models.CharField(max_length=10)
