@@ -15,12 +15,12 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+os.chdir(BASE_DIR)
+
+from config import *
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'n57gujtra%b=ggxwvq25-@(3)s9@0o5zq)*x9#mcsez0n53f(j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mainApp',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'hangmanAPI.wsgi.application'
 
+APIKEY_WORDSAPI = config['apiKey_WordsAPI']
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
