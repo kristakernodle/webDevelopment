@@ -4,7 +4,7 @@ from django.template import loader
 from django.http import HttpResponse
 
 
-from .models import getNewWord
+from .models import GetNewWord
 import requests
 
 
@@ -17,6 +17,6 @@ def dispRandomWord(request):
     }
     response = requests.request("GET", url, headers=headers, params=querystring)
     entireResponse = response.json()
-    getNewWord.randomWord = entireResponse['word']
+    GetNewWord.randomWord = entireResponse['word']
 
-    return render(request, 'dispRandomWord.html', context={'randomWord': getNewWord.randomWord})
+    return render(request, 'dispRandomWord.html', context={'randomWord': GetNewWord.randomWord})
