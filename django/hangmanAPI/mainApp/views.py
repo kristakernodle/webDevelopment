@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.conf import settings
+from django.template import loader
 from django.http import HttpResponse
 
+
+from .models import getNewWord
 import requests
-import json
 
 
-def home(request):
+def dispRandomWord(request):
     url = "https://wordsapiv1.p.rapidapi.com/words/"
     querystring = {"random": "true", "lettersMin": 3, "lettersMax": 10}
     headers = {
@@ -15,4 +17,6 @@ def home(request):
     }
     response = requests.request("GET", url, headers=headers, params=querystring)
     entireResponse = response.json()
-    return HttpResponse(entireResponse['word'])
+    getNewWord.randomWord = entireResponse['word']
+
+    return render(request, 'dispRandomWord.html', context={'randomWord': getNewWord.randomWord})
