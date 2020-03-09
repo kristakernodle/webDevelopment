@@ -6,4 +6,5 @@ class WordTestCase(TestCase):
         randomWord = mds.Word
         randomWord.get_random_word(randomWord)
         self.assertTrue(type(randomWord.solution), str)
+        self.assertTrue(randomWord.solution.isalpha(), True)
 
