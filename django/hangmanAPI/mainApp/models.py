@@ -1,5 +1,5 @@
 from django.db import models
 
 
-class getNewWord(models.Model):
-     randomWord = models.CharField(max_length=10)
+class Word(models.Model):
+    solution = models.CharField(max_length=10)
