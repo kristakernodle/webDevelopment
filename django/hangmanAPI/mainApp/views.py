@@ -17,6 +17,6 @@ def dispRandomWord(request):
     }
     response = requests.request("GET", url, headers=headers, params=querystring)
     entireResponse = response.json()
-    Word.solution = entireResponse['word']
+    Word._solution = entireResponse['word']
 
-    return render(request, 'dispRandomWord.html', context={'randomWord': Word.solution})
+    return render(request, 'dispRandomWord.html', context={'randomWord': Word._solution})

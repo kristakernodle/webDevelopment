@@ -4,7 +4,7 @@ import hangmanAPI.settings as settings
 
 
 class Word(models.Model):
-    solution = models.CharField(max_length=10)
+    solution: str = models.CharField(max_length=10)
 
     def get_random_word(self):
         url = "https://wordsapiv1.p.rapidapi.com/words/"
@@ -15,4 +15,9 @@ class Word(models.Model):
         }
         response = requests.request("GET", url, headers=headers, params=querystring)
         entireResponse = response.json()
-        return entireResponse['word']
+        randomWord = entireResponse['word']
+        while not randomWord.isalpha():
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            entireResponse = response.json()
+            randomWord = entireResponse['word']
+        self.solution = randomWord
