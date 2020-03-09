@@ -5,7 +5,7 @@ import mainApp.models as mds
 class GameTestCase(TestCase):
     def test_game_state(self):
         game1 = mds.Game()
-        self.assertTrue(game1.state, False)
+        self.assertFalse(game1.state)
 
 
 class WordTestCase(TestCase):
