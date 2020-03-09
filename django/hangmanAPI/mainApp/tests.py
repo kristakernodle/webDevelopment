@@ -4,7 +4,14 @@ import mainApp.models as mds
 
 class WordTestCase(TestCase):
     def test_get_random_word(self):
-        randomWord = mds.Word()
-        randomWord.get_random_word()
-        self.assertTrue(type(randomWord.solution), str)
-        self.assertTrue(randomWord.solution.isalpha(), True)
+        wordPair = mds.Word()
+        wordPair.get_random_word()
+
+        # Check the displayWord attribute
+        self.assertTrue(type(wordPair.displayWord), str)
+        self.assertIs(wordPair.displayWord, '_'*10)
+
+        # Check the private _solution attribute
+        self.assertTrue(type(wordPair._solution), str)
+        self.assertTrue(wordPair._solution.isalpha(), True)
+
