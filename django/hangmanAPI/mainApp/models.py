@@ -6,6 +6,9 @@ import hangmanAPI.settings as settings
 class Game(models.Model):
     state = models.BooleanField(default=False)
 
+    def start(self):
+        self.state = True
+
 
 class Word(models.Model):
     _solution: str = models.CharField(max_length=10)
