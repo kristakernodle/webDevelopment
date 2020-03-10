@@ -1,7 +1,11 @@
 from django.db import models
 import requests
 import hangmanAPI.settings as settings
+import uuid
 
+
+class MyUUIDClass(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
 class Game(models.Model):
     state = models.BooleanField(default=False)
