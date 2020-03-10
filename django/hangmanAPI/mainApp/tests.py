@@ -6,6 +6,8 @@ class GameTestCase(TestCase):
     def test_game_state(self):
         game1 = mds.Game()
         self.assertFalse(game1.state)
+        game1.start()
+        self.assertTrue(game1.state)
 
 
 class WordTestCase(TestCase):
