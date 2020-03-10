@@ -5,6 +5,7 @@ import uuid
 
 
 class MyUUIDClass(models.Model):
+    # I do not know if this is necessary, since everything will relate to the game?
     id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
 
 
