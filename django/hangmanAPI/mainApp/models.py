@@ -5,9 +5,11 @@ import uuid
 
 
 class MyUUIDClass(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
+
 
 class Game(models.Model):
+    gameID = models.ForeignKey(MyUUIDClass, models.CASCADE, blank=True)
     state = models.BooleanField(default=False)
 
     def start(self):
